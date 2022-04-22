@@ -1,0 +1,42 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model CastModel
+
+<div class="container">
+    <h3 class="display-4">@Model.Name</h3> <hr />
+    <div class="row">
+        <div class="col-4">
+            <img src="@Model.ProfilePath" />
+        </div>
+        <div class="col-8">
+            <ul class="list-group">
+                <li class="list-group-item">Name - @Model.Name</li>
+
+                @{if (@Model.Gender == 1)
+                {
+                    <li class="list-group-item">Gender - Female</li>
+                }
+                else if (@Model.Gender==2){
+                    <li class="list-group-item">Gender - Male</li>
+                }
+                else{
+                    <li class="list-group-item">Gender - Other</li>
+                }}
+
+                <li class="list-group-item">Tmdb URL - @Model.TmdbUrl</li>
+            </ul>
+
+            <hr/>
+
+            <div class="row">
+                @foreach (var mcast in @Model.MovieCasts)
+                {
+                    <partial name="_MovieCard" model="@mcast.Movie"></partial>
+                }
+       </div>
+    </div>
+</div>

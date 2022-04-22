@@ -1,0 +1,45 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = null;
+}
+
+<h1>This is login page</h1>
+Razor view 
+its extensiton is
+
+cshtml
+cs + html
+
+
+Razor View Engine:- it is a piece of code which will convert the C# code of the razor
+view to an html code.
+
+@{
+    int a = 20;
+    int b = 30;
+    int c = a + b;
+    <h3>Sum = @c </h3>
+    <table border="1">
+    @for (int i = 0; i < 10; i++)
+    {
+        <tr>
+        <td  >@i</td>
+        </tr>
+    }
+    </table>
+
+}
+
+
+Layout
+header--- menu, logo, login/signup
+
+Content:- it will be keep changing
+
+footer-- rights, social media icon
+
+Shared views
+
+section RenderBody()

@@ -1,0 +1,22 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model IEnumerable<MovieResponseModel>;
+
+<div class="row">
+    <div class="col-9">
+        <h1>
+            @ViewBag.Title
+        </h1>
+    </div>
+</div>
+<hr/>
+<h2>Movies</h2>
+<div class="row">
+    @foreach (var mcast in @Model)
+    {
+        <partial name="_MovieCard" model="@mcast"></partial>
+     }
+</div>
+

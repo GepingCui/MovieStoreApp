@@ -1,0 +1,37 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model MovieResponseModel
+<div class="container">
+    <h3 class="display-4">@Model.Title Detail</h3> <hr />
+    <div class="row">
+        <div class="col-4">
+            <img src="@Model.PosterUrl" />
+        </div>
+        <div class="col-8">
+            <ul class="list-group">
+                <li class="list-group-item">Title - @Model.Title</li>
+                <li class="list-group-item">Tagline - @Model.Tagline</li>
+                <li class="list-group-item">Runtime - @Model.Runtime | Budget - @Model.Budget</li>
+                <li class="list-group-item">Description - @Model.Overview</li>
+                <li class="list-group-item">Language - @Model.OriginalLanguage | Release On : @Model.ReleaseDate.ToShortDateString() </li>
+            </ul>
+            <hr/>
+
+            <div class="row">
+                @foreach (var mcast in @Model.MovieCasts)
+                {
+                    <partial name="_CastCard" model="@mcast.Cast"></partial>
+
+                }
+            </div>
+            <hr/>
+                <a target="_blank" asp-controller="genre" asp-action="index" asp-route-genreId="@((@Model.Runtime)%20+1)" class="btn btn-primary">Find Similar Movies</a>
+            
+        </div>
+
+        
+    </div>
+</div>
