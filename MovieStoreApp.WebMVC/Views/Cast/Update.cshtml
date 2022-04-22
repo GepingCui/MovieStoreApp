@@ -1,0 +1,43 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model CastModel
+<h3 class="display-3">Update Cast</h3><hr/>
+<form method="post" asp-controller="Cast" asp-action="Update">
+<div class="container">
+    <div class="my-3">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control"/>
+        <span asp-validation-for="Name" class="text-danger" >
+            
+        </span>
+    </div>
+    <div class="my-3">
+        <label asp-for="Gender"></label>
+        <select asp-for="Gender" class="form-control" asp-items="ViewBag.Gender">
+           <option>Select Gender</option>
+        </select>
+        <span asp-validation-for="Gender" class="text-danger" >
+            
+        </span>
+    </div>
+    <div class="my-3">
+        <label asp-for="TmdbUrl"></label>
+        <input asp-for="TmdbUrl"class="form-control" />
+        <span asp-validation-for="TmdbUrl" class="text-danger" >
+            
+        </span>
+    </div>
+    <div class="my-3">
+        <label asp-for="ProfilePath"></label>
+        <input asp-for="ProfilePath" class="form-control"/>
+        <span asp-validation-for="ProfilePath" class="text-danger" >
+            
+        </span>
+    </div>
+    <input type="submit" value="Update Cast" class="btn btn-primary"/>
+</div>
+</form>

@@ -40,6 +40,22 @@ namespace MovieStoreApp.WebMVC.Controllers
             ViewBag.Gender= new SelectList(GetGenders(),"Id","Gender");
             return View();
         }
+
+        public IActionResult Delete()
+        {
+            ViewBag.Gender = new SelectList(GetGenders(), "Id", "Gender");
+            return View();
+        }
+
+        public IActionResult Update()
+        {
+            ViewBag.Gender = new SelectList(GetGenders(), "Id", "Gender");
+            return View();
+        }
+
+
+
+
         [NonAction]
         private IEnumerable<GenderModel> GetGenders()
         {
@@ -58,6 +74,36 @@ namespace MovieStoreApp.WebMVC.Controllers
             if (model.ProfilePath != null)
             {
                 castServiceAsync.AddCastAsync(model);
+                return RedirectToAction("Index");
+            }
+            //call the service to insert the data
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(CastModel model)
+        {
+
+            ViewBag.Gender = new SelectList(GetGenders(), "Id", "Gender");
+            if (model.ProfilePath != null)
+            {
+                castServiceAsync.DeleteCastAsync(model);
+                return RedirectToAction("Index");
+            }
+            //call the service to insert the data
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult Update(CastModel model)
+        {
+
+            ViewBag.Gender = new SelectList(GetGenders(), "Id", "Gender");
+            if (model.ProfilePath != null)
+            {
+                castServiceAsync.UpdateCastAsync(model);
                 return RedirectToAction("Index");
             }
             //call the service to insert the data

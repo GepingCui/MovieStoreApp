@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace MovieStoreApp.Infrastructure.Service
 {
@@ -26,6 +27,23 @@ namespace MovieStoreApp.Infrastructure.Service
             c.ProfilePath=model.ProfilePath;
             c.Gender=model.Gender;
           return await  castRepositoryAsync.InsertAsync(c);
+        }
+
+        public async Task<int> DeleteCastAsync(CastModel model)
+        {
+            return await castRepositoryAsync.DeleteAsync(model.Id);
+
+        }
+
+        public async Task<int> UpdateCastAsync(CastModel model)
+        {
+            Cast c = new Cast();
+            c.Name = model.Name;
+            c.TmdbUrl = model.TmdbUrl;
+            c.ProfilePath = model.ProfilePath;
+            c.Gender = model.Gender;
+            await castRepositoryAsync.DeleteAsync(model.Id);
+            return await castRepositoryAsync.InsertAsync(c);
         }
 
         public async Task<IEnumerable<CastModel>> GetAllCastAsync()

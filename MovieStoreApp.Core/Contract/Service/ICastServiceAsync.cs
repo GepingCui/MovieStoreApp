@@ -10,6 +10,9 @@ namespace MovieStoreApp.Core.Contract.Service
     public interface ICastServiceAsync
     {
         Task<int> AddCastAsync(CastModel model);
+        Task<int> DeleteCastAsync(CastModel model);
+        Task<int> UpdateCastAsync(CastModel model);
+
         Task<IEnumerable<CastModel>> GetAllCastAsync();
         Task<CastModel> GetCastAsync(int id);
     }
