@@ -35,5 +35,19 @@ namespace MovieStoreAPI.Controllers
         {
             return Ok(await castServiceAsync.AddCastAsync(model));
         }
+
+        [HttpPost]
+        [Route("delete")]
+        public async Task<IActionResult> Delete([FromBody] CastModel model)
+        {
+            return Ok(await castServiceAsync.DeleteCastAsync(model));
+        }
+
+        [HttpPost]
+        [Route("update")]
+        public async Task<IActionResult> Update([FromBody] CastModel model)
+        {
+            return Ok(await castServiceAsync.UpdateCastAsync(model));
+        }
     }
 }

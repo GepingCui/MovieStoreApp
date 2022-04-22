@@ -17,12 +17,15 @@ builder.Services.AddSqlServer<MovieContext>(builder.Configuration.GetConnectionS
 
 //services
 builder.Services.AddScoped<ICastServiceAsync, CastServiceAsync>();
-
+builder.Services.AddScoped<IMovieServiceAsync, MovieServiceAsync>();
+builder.Services.AddScoped<IGenreServiceAsync, GenreServiceAsync>();
 
 
 
 //repository
 builder.Services.AddScoped<ICastRepositoryAsync, CastRepositoryAsync>();
+builder.Services.AddScoped<IGenreRepositoryAsync, GenreRepositoryAsync>();
+builder.Services.AddScoped<IMovieRepositoryAsync, MovieRepositoryAsync>();
 
 
 

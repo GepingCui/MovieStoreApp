@@ -50,7 +50,6 @@ namespace MovieStoreApp.Infrastructure.Service
             return lstMovieResponse;
 
         }
-
     }
 }
 
