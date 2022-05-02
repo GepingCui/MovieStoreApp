@@ -12,5 +12,9 @@ namespace MovieStoreApp.Core.Contract.Service
         Task<IEnumerable<MovieResponseModel>> GetAllByGenre(int Id);
 
         Task<string> GetGenreName(int Id);
+
+        Task<int> AddGenreAsync(GenreModel model);
+        Task<int> DeleteGenreAsync(int Id);
+        Task<int> UpdateGenreAsync(GenreModel model);
     }
 }

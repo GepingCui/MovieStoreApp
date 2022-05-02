@@ -30,5 +30,26 @@ namespace MovieStoreAPI.Controllers
             return Ok(await genreServiceAsync.GetGenreName(id));
         }
 
+        [HttpPost]
+        [Route("add")]
+        public async Task<IActionResult> Create([FromBody] GenreModel model)
+        {
+            return Ok(await genreServiceAsync.AddGenreAsync(model));
+        }
+
+        [HttpDelete]
+        [Route("delete/{id}")]
+        public async Task<IActionResult> Delete(int Id)
+        {
+            return Ok(await genreServiceAsync.DeleteGenreAsync(Id));
+        }
+
+        [HttpPost]
+        [Route("update")]
+        public async Task<IActionResult> Update([FromBody] GenreModel model)
+        {
+            return Ok(await genreServiceAsync.UpdateGenreAsync(model));
+        }
+
     }
 }

@@ -88,7 +88,7 @@ namespace MovieStoreApp.WebMVC.Controllers
             ViewBag.Gender = new SelectList(GetGenders(), "Id", "Gender");
             if (model.ProfilePath != null)
             {
-                castServiceAsync.DeleteCastAsync(model);
+                castServiceAsync.DeleteCastAsync(model.Id);
                 return RedirectToAction("Index");
             }
             //call the service to insert the data

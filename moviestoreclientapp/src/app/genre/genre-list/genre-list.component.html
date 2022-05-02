@@ -1,0 +1,16 @@
+<a href="genre/add">
+    Add New Genre
+</a>
+
+<table class="table table-stripped table-hover">
+    <thead>
+        <th>Id</th>
+        <th>Name</th>
+    </thead>
+    <tbody>
+        <tr *ngForm="let c of genres">
+            <td>{{c.id}}</td>
+            <td>{{c.name}}</td>
+        </tr>
+    </tbody>
+</table>

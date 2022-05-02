@@ -30,6 +30,27 @@ namespace MovieStoreAPI.Controllers
             return Ok(await movieServiceAsync.GetByIdAsync(id));
         }
 
+        [HttpPost]
+        [Route("add")]
+        public async Task<IActionResult> Create([FromBody] MovieResponseModel model)
+        {
+            return Ok(await movieServiceAsync.AddMovieAsync(model));
+        }
+
+        [HttpDelete]
+        [Route("delete/{id}")]
+        public async Task<IActionResult> Delete(int Id)
+        {
+            return Ok(await movieServiceAsync.DeleteMovieAsync(Id));
+        }
+
+        [HttpPost]
+        [Route("update")]
+        public async Task<IActionResult> Update([FromBody] MovieResponseModel model)
+        {
+            return Ok(await movieServiceAsync.UpdateMovieAsync(model));
+        }
+
 
     }
 }

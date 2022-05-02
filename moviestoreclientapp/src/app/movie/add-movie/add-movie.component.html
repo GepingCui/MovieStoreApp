@@ -1,0 +1,62 @@
+<form #movieForm="ngForm" (submit)="addMovie(movieForm)">
+
+    <div class=""mb-3>
+        <label for="title"> Title</label>
+        <input (ngModel)="movieValue.title" name="title" class="form-control"/>
+
+    </div>
+
+    <div class=""mb-3>
+        <label for="overview"> Overview </label>
+        <input (ngModel)="movieValue.overview" name="overview" class="form-control"/>
+
+    </div>
+
+    <div class=""mb-3>
+        <label for="tagline"> Tagline </label>
+        <input (ngModel)="movieValue.tagline" name="tagline" class="form-control"/>
+
+    </div>
+
+    <div class=""mb-3>
+        <label for="imdbUrl"> ImdbUrl </label>
+        <input (ngModel)="movieValue.imdbUrl" name="imdbUrl" class="form-control"/>
+
+    </div>
+
+    <div class=""mb-3>
+        <label for="tmdbUrl"> TmdbUrl </label>
+        <input (ngModel)="movieValue.tmdbUrl" name="tmdbUrl" class="form-control"/>
+
+    </div>
+
+    <div class=""mb-3>
+        <label for="posterUrl"> PosterUrl </label>
+        <input (ngModel)="movieValue.posterUrl" name="posterUrl" class="form-control"/>
+
+    </div>
+
+    <div class=""mb-3>
+        <label for="backdropUrl">BackdropUrl </label>
+        <input (ngModel)="movieValue.backdropUrl" name="backdropUrl" class="form-control"/>
+
+    </div>
+
+    <div class=""mb-3>
+        <label for="runTime"> RunTime </label>
+        <input (ngModel)="movieValue.runTime" name="runTime" class="form-control"/>
+
+    </div>
+
+    <div class=""mb-3>
+        <label for="originalLanguage"> OriginalLanguage </label>
+        <input (ngModel)="movieValue.originalLanguage" name="originalLanguage" class="form-control"/>
+
+    </div>
+
+    <input type="submit" class="btn btn-primary" value="Add Movie"/>
+    <input type="button" class="btn btn-default" value="Reset" (click)="resetForm(movieForm)"/>
+
+
+
+</form>

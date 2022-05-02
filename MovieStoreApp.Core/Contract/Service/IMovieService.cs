@@ -11,5 +11,9 @@ namespace MovieStoreApp.Core.Contract.Service
         Task<IEnumerable<MovieResponseModel>> GetTop10RevenueMoviesAsync();
         Task<IEnumerable<MovieResponseModel>> GetTop3LatestMoviesAsync();
         Task<MovieResponseModel> GetByIdAsync(int id);
+
+        Task<int> AddMovieAsync(MovieResponseModel model);
+        Task<int> DeleteMovieAsync(int Id);
+        Task<int> UpdateMovieAsync(MovieResponseModel model);
     }
 }

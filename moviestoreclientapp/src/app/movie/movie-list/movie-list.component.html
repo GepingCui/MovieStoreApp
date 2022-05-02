@@ -1,0 +1,23 @@
+<table class="table table-stripped table-hover">
+  <thead>
+      <th>Id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+  </thead>
+  <tbody>
+      <tr *ngForm="let c of movies">
+          <td>{{c.id}}</td>
+          <td>{{c.overview}}</td>
+          <td>{{c.imdbUrl}}</td>
+          <td>{{c.originalLanguage}}</td>
+
+      </tr>
+  </tbody>
+</table>

@@ -29,9 +29,9 @@ namespace MovieStoreApp.Infrastructure.Service
           return await  castRepositoryAsync.InsertAsync(c);
         }
 
-        public async Task<int> DeleteCastAsync(CastModel model)
+        public async Task<int> DeleteCastAsync(int Id)
         {
-            return await castRepositoryAsync.DeleteAsync(model.Id);
+            return await castRepositoryAsync.DeleteAsync(Id);
 
         }
 

@@ -14,6 +14,12 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSqlServer<MovieContext>(builder.Configuration.GetConnectionString("MovieStore"));
 
+builder.Services.AddCors(option =>
+{
+    option.AddDefaultPolicy(x => { x.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyMethod(); });
+}
+
+);
 
 //services
 builder.Services.AddScoped<ICastServiceAsync, CastServiceAsync>();
@@ -37,6 +43,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors();
 
 app.UseHttpsRedirection();
 

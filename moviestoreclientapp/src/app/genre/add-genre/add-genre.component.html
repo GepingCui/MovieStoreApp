@@ -1,0 +1,42 @@
+
+
+
+
+
+
+
+<!-- <form #genreForm="ngForm" (submit)="saveGenre(genreForm)">
+
+    <input type="text" [(ngModel)]="genreName" name="genreName" required="true"/>
+    <input type="submit" value="Add Genre" class="btn btn-primary" [disabled]="!genreForm.valid"/>
+</form> -->
+
+
+
+<form #genreForm="ngForm" (submit)="addGenre(genreForm)">
+    <div class=""mb-3>
+        <label for="name"> Name </label>
+        <input (ngModel)="genreValue.name" name="genre" class="form-control"/>
+
+    </div>
+    <!-- <div class=""mb-3>
+        <label for="gender"> Gender </label>
+        <input (ngModel)="castValue.gender" name="gender" class="form-control"/>
+
+    </div>
+    <div class=""mb-3>
+        <label for="tmdbUrl"> TmdbUrl </label>
+        <input (ngModel)="castValue.tmdbUrl" name="tmdbUrl" class="form-control"/>
+
+    </div>
+    <div class=""mb-3>
+        <label for="profilePath"> ProfilePath </label>
+        <input (ngModel)="castValue.profilePath" name="profilePath" class="form-control"/>
+
+    </div> -->
+    <input type="submit" class="btn btn-primary" value="Add Genre"/>
+    <input type="button" class="btn btn-default" value="Reset" (click)="resetForm(genreForm)"/>
+
+
+
+</form>

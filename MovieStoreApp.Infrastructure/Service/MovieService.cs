@@ -1,5 +1,6 @@
 ﻿using MovieStoreApp.Core.Contract.Repository;
 using MovieStoreApp.Core.Contract.Service;
+using MovieStoreApp.Core.Entity;
 using MovieStoreApp.Core.Models;
 using MovieStoreApp.Infrastructure.Repository;
 using System;
@@ -7,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace MovieStoreApp.Infrastructure.Service
 {
@@ -89,6 +91,54 @@ namespace MovieStoreApp.Infrastructure.Service
                 lstMovieResponse.Add(model);
             }
             return lstMovieResponse;
+        }
+
+
+        public async Task<int> AddMovieAsync(MovieResponseModel model)
+        {
+            Movie c = new Movie();
+            c.Title = model.Title;
+            c.Overview = model.Overview;
+            c.Tagline = model.Tagline;
+            c.Budget = model.Budget;
+            c.Revenue = model.Revenue;
+            c.ImdbUrl = model.ImdbUrl;
+            c.TmdbUrl = model.TmdbUrl;
+            c.PosterUrl = model.PosterUrl;
+            c.BackdropUrl = model.BackdropUrl;
+            c.OriginalLanguage = model.OriginalLanguage;
+            c.ReleaseDate = model.ReleaseDate;
+            c.Runtime = model.Runtime;
+            c.Price = model.Price;
+
+            return await movieRepository.InsertAsync(c);
+        }
+
+        public async Task<int> DeleteMovieAsync(int Id)
+        {
+            return await movieRepository.DeleteAsync(Id);
+
+        }
+
+        public async Task<int> UpdateMovieAsync(MovieResponseModel model)
+        {
+            Movie c = new Movie();
+            c.Title = model.Title;
+            c.Overview = model.Overview;
+            c.Tagline = model.Tagline;
+            c.Budget = model.Budget;
+            c.Revenue = model.Revenue;
+            c.ImdbUrl = model.ImdbUrl;
+            c.TmdbUrl = model.TmdbUrl;
+            c.PosterUrl = model.PosterUrl;
+            c.BackdropUrl = model.BackdropUrl;
+            c.OriginalLanguage = model.OriginalLanguage;
+            c.ReleaseDate = model.ReleaseDate;
+            c.Runtime = model.Runtime;
+            c.Price = model.Price;
+
+            await movieRepository.DeleteAsync(model.Id);
+            return await movieRepository.InsertAsync(c);
         }
     }
 }
